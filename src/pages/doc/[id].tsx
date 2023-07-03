@@ -17,7 +17,7 @@ const TutorialPage = () => {
 
   useEffect(() => {
     const fetchReadmeContent = async () => {
-      const url = `https://firebasestorage.googleapis.com/v0/b/blog-firebase-98246.appspot.com/o/markdown.md?alt=media&token=9bb48e0b-bbc0-440d-8a24-17e05112c5ce`;
+      const url = `https://github.com/artemis-io/blog-next/blob/main/src/templates/markdown.md`;
       
       try {
         const response = await fetch(url);
