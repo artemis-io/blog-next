@@ -3,7 +3,7 @@ import { CopyIcon, CheckIcon } from '@chakra-ui/icons'
 import { useEffect, useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 interface StyledDivProps {
   children: string
@@ -53,14 +53,13 @@ const StyledDiv: React.FC<StyledDivProps> = ({ children }) => {
       <SyntaxHighlighter
         showLineNumbers
         language="javascript"
-        style={colorMode === 'light' ? a11yDark : darcula}
+        style={colorMode === 'light' ? a11yDark : atomDark}
         customStyle={{
           fontFamily: 'monospace',
           fontSize: '14px',
           borderRadius: 'md',
           overflowX: 'auto',
           padding: '1rem',
-          background: colorMode === 'light' ? 'white' : '#011627',
           color: colorMode === 'light' ? '#011627' : 'white',
         }}
       >

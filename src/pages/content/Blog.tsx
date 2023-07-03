@@ -27,7 +27,6 @@ const Blog = () => {
     fetchTutorialsData()
   }, [])
 
-
   return (
     <Flex align="center" justify="left" py={20}>
       <Box py={12} maxW="1000px" paddingX={{ base: '4', md: '36' }}>
@@ -71,7 +70,9 @@ const Blog = () => {
                     fontSize="md"
                     color={colorMode === 'light' ? 'gray.600' : 'gray.300'}
                   >
-                    {tutorial.preview}
+                    {tutorial.preview.length > 100
+                      ? `${tutorial.preview.slice(0, 250)}...`
+                      : tutorial.preview}
                   </Text>
                 </Box>
               </a>

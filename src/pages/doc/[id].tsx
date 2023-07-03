@@ -10,35 +10,34 @@ import TutorialContent from '@/components/common/TutorialContent.component'
 const TutorialPage = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   const [tutorialData, setTutorialData] = useState<TutorialData | null>(null)
-  const [readmeContent, setReadmeContent] = useState<string>('')
+  const [readmeContent, setReadmeContent] = useState('')
   const [showHashtag, setShowHashtag] = useState(false)
   const headingRef = useRef<HTMLDivElement>(null) // Refere-se ao elemento que deve ficar no topo
   const router = useRouter()
+  const { id } = router.query
 
   useEffect(() => {
-    const fetchReadmeContent = async () => {
-      const url = `https://github.com/artemis-io/blog-next/blob/main/src/templates/markdown.md`;
-      
+    const fetchArticle = async () => {
       try {
-        const response = await fetch(url);
-        if (response.ok) {
-          const content = await response.text();
-          setReadmeContent(content);
-        } else {
-          console.log('Erro ao buscar o arquivo:', response.status);
+        if (id) {
+          const response = await fetch(`/markdown/${id}.md`)
+          if (!response.ok) {
+            // Arquivo não encontrado, redirecionar para página 404
+            router.push('/404')
+            return
+          }
+          const text = await response.text()
+          setReadmeContent(text)
         }
       } catch (error) {
-        console.log('Erro:', error);
+        console.error('Error fetching article:', error)
       }
-    };
-  
-    fetchReadmeContent();
-  }, []);
-  
+    }
+
+    fetchArticle()
+  }, [id, router])
 
   useEffect(() => {
-    const { id } = router.query
-
     if (id) {
       const fetchData = async () => {
         const tutorialData = await fetchTutorialData(id as string)
@@ -47,7 +46,7 @@ const TutorialPage = () => {
 
       fetchData()
     }
-  }, [router.query])
+  }, [id])
 
   const handleHeading = () => {
     handleHeadingClick(headingRef)
@@ -67,7 +66,7 @@ const TutorialPage = () => {
           handleHeading={handleHeading}
           showHashtag={showHashtag}
           setShowHashtag={setShowHashtag}
-          headingRef={headingRef} // Adicione essa linha
+          headingRef={headingRef}
         />
       </Flex>
     </Layout>

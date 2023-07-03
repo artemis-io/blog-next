@@ -58,7 +58,8 @@
 <div>
     <Code language="javascript">
       const name = "Jaya"
-      console.log(`Hi, ${name}. You have ${2 * 3} new notifications.`)
+      console.log(\`Hi, \${name}. You have \${2 * 3} new notifications.\`)
+
       //Hi, Jaya. You have 8 new notifications.</Code>
 </div>
 
@@ -87,7 +88,8 @@
 <div>
     <Code language="javascript">
       const date = new Date()
-      const currentTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+      const currentTime = \`\${date.getHours()}:\${date.getMinutes()}:\${date.getSeconds()}\`
+      
       console.log(currentTime)
         
       //example output: "22:16:41"</Code>
