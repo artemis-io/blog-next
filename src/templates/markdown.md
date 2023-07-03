@@ -18,7 +18,9 @@
 </div>
 
 <h1>2. Select a random element</h1>
+
 <p>Seleciona um elemento aleatório de um array.</p>
+
 <div>
     <Code language="javascript">
       const items = ["Ball", "Bat", "Cup"]
@@ -27,7 +29,9 @@
 </div>
 
 <h1>3. Reverse a string</h1>
+
 <p>Inverte uma string.</p>
+
 <div>
     <Code language="javascript">
       function reverseString(string) {
@@ -48,7 +52,9 @@
 </div>
 
 <h1>5. String interpolation</h1>
+
 <p>Interpolação de strings - permite inserir valores de variáveis em uma string.</p>
+
 <div>
     <Code language="javascript">
       const name = "Jaya"
@@ -57,7 +63,9 @@
 </div>
 
 <h1>6. Loop through an array</h1>
+
 <p>Itera sobre os elementos de um array.</p>
+
 <div>
     <Code language="javascript">
       const cars = ["Ford", "BMW", "Audi" ]
@@ -73,39 +81,45 @@
 </div>
 
 <h1>7. Get current time</h1>
+
 <p>Obtém o horário atual.</p>
+
 <div>
     <Code language="javascript">
       const date = new Date()
-      const currentTime =
-        `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-
+      const currentTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
       console.log(currentTime)
+        
       //example output: "22:16:41"</Code>
 </div>
 
 <h1>8. Replace part of a string</h1>
+
 <p>Substitui uma parte de uma string por outra.</p>
+
 <div>
     <Code language="javascript">
       const string = "You are awesome."
       const replacedString = string.replace("You", "We")
-
       console.log(replacedString) 
+        
       //Output: "We are awesome"</Code>
 </div>
 
 <h1>9. Destructing variable assignment</h1>
+
 <p>Atribuição de variável por desestruturação - extrai valores de um array ou objeto para variáveis separadas.</p>
+
 <div>
     <Code language="javascript">
       let profile = ['bob', 34, 'carpenter'];
       let [name, age, job] = profile;
       console.log(name);
+        
       // bob</Code>
 </div>
 
-<h1>1.  Using the spread operator</h1>
+<h1>10.  Using the spread operator</h1>
 
 <div>
     <Code language="javascript">
