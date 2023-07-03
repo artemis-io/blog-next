@@ -10,23 +10,31 @@ import TutorialContent from '@/components/common/TutorialContent.component'
 const TutorialPage = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   const [tutorialData, setTutorialData] = useState<TutorialData | null>(null)
-  const [readmeContent, setReadmeContent] = useState<string>()
+  const [readmeContent, setReadmeContent] = useState<string>('')
   const [showHashtag, setShowHashtag] = useState(false)
   const headingRef = useRef<HTMLDivElement>(null) // Refere-se ao elemento que deve ficar no topo
   const router = useRouter()
 
-  const fetchReadmeContent = async () => {
-    try {
-      const response = await fetch(
-        `https://github.com/candraKriswinarto/react-markdown-blog/blob/main/src/markdown/article.md`
-      )
-      const readmeContent = await response.text()
-      setReadmeContent(readmeContent)
-    } catch (error) {
-      console.error(error)
-      setReadmeContent('')
-    }
-  }
+  useEffect(() => {
+    const fetchReadmeContent = async () => {
+      const url = `https://firebasestorage.googleapis.com/v0/b/blog-firebase-98246.appspot.com/o/markdown.md?alt=media&token=9bb48e0b-bbc0-440d-8a24-17e05112c5ce`;
+      
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          const content = await response.text();
+          setReadmeContent(content);
+        } else {
+          console.log('Erro ao buscar o arquivo:', response.status);
+        }
+      } catch (error) {
+        console.log('Erro:', error);
+      }
+    };
+  
+    fetchReadmeContent();
+  }, []);
+  
 
   useEffect(() => {
     const { id } = router.query
@@ -35,7 +43,6 @@ const TutorialPage = () => {
       const fetchData = async () => {
         const tutorialData = await fetchTutorialData(id as string)
         setTutorialData(tutorialData)
-        fetchReadmeContent();
       }
 
       fetchData()

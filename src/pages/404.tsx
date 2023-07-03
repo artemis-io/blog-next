@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage = () => {
   return (
     <Box
       textAlign="center"

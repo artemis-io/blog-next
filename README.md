@@ -1,7 +1,3 @@
-# Aplicação de Chamada de Vídeo
-
-Este é um projeto de exemplo para uma aplicação de chamada de vídeo utilizando Next.js.
-
 ## Pré-requisitos
 
 Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
@@ -48,7 +44,6 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de dese
 ## Tecnologias Utilizadas
 
 - Next.js: Framework de React para construção de aplicações web.
-- WebRTC: API de navegador para comunicação em tempo real de áudio e vídeo.
 - Outras bibliotecas e dependências estão listadas no arquivo package.json.
 
 ## Contribuindo
